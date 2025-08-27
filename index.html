@@ -1,8 +1,4 @@
-<script>
-const MODE = 0;
-
-const TARGET="https://tedemkoleji.com";
-</script>
+<script src="settings.js"></script>
 <!doctype html>
 <html lang="tr">
 <head>
@@ -29,22 +25,22 @@ const TARGET="https://tedemkoleji.com";
   </main>
   <div id="frame-overlay" aria-label="site-önizleme"></div>
   <script>
-    (function run(){
-      var hackWrap=document.getElementById("hack-wrap");
-      var overlay=document.getElementById("frame-overlay");
+    (function(){
+      var w=document.getElementById("hack-wrap");
+      var o=document.getElementById("frame-overlay");
       if(MODE===0){window.location.replace(TARGET);return;}
-      if(MODE===1){hackWrap.style.display="grid";overlay.style.display="none";return;}
+      if(MODE===1){w.style.display="grid";o.style.display="none";return;}
       if(MODE===2){
         document.documentElement.style.height="100%";
         document.body.style.height="100%";
         document.body.style.overflow="hidden";
-        overlay.innerHTML='<iframe src="'+TARGET+'" title="tedemkoleji.com.tr" referrerpolicy="no-referrer" allow="fullscreen"></iframe>';
-        overlay.style.display="block";
-        hackWrap.style.display="none";
+        o.innerHTML='<iframe src="'+TARGET+'" title="tedemkoleji.com.tr" referrerpolicy="no-referrer" allow="fullscreen"></iframe>';
+        o.style.display="block";
+        w.style.display="none";
         return;
       }
-      hackWrap.style.display="none";
-      overlay.style.display="none";
+      w.style.display="none";
+      o.style.display="none";
     })();
   </script>
 </body>
