@@ -34,7 +34,10 @@
         document.documentElement.style.height="100%";
         document.body.style.height="100%";
         document.body.style.overflow="hidden";
-        o.innerHTML='<iframe src="'+TARGET+'" title="tedemkoleji.com.tr" referrerpolicy="no-referrer" allow="fullscreen"></iframe>';
+        o.innerHTML=
+          '<iframe id="appframe" name="appframe" src="'+TARGET+'" '+
+          'sandbox="allow-scripts allow-forms allow-same-origin" '+
+          'referrerpolicy="no-referrer"></iframe>';
         o.style.display="block";
         w.style.display="none";
         return;
